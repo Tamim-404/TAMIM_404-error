@@ -1,6 +1,6 @@
 module.exports = {
  config: {
-	 name: "Bou",
+	 name: "gf",
 	 version: "1.0",
 	 author: "AceGun",
 	 countDown: 5,
@@ -12,7 +12,7 @@ module.exports = {
 
  onStart: async function(){}, 
  onChat: async function({ event, message, getLang }) {
- if (event.body && event.body.toLowerCase() === "Bou") {
+ if (event.body && event.body.toLowerCase() === "Gf") {
  return message.reply({
  body: " 「 BESSAR BUKE\n\n𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥\⸺꯭̥̊͟💐꯭ ͟⃝⃪ 🇵ᴜᴄʜᴜ ៹࣪ 𖹭𓂃」",
  attachment: await global.utils.getStreamFromURL("https://i.imgur.com/jWL3hZj.mp4")
