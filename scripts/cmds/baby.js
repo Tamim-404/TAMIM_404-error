@@ -1,7 +1,6 @@
 const axios = require('axios');
 const baseApiUrl = async () => {
-  const base = await axios.get('https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json');
-  return base.data.api;
+  return "https://www.noobs-api.rf.gd/dipto";
 };
 
 module.exports.config = {
@@ -145,7 +144,14 @@ module.exports.onChat = async ({ api, event,message }) => {
     const body = event.body ? event.body.toLowerCase() : ""
     if(body.startsWith("baby") || body.startsWith("bby") || body.startsWith("janu")){
       const arr = body.replace(/^\S+\s*/, "")
-      if(!arr) return message.reply("Bolo Baby 🐥😗 ")
+      if(!arr){ api.sendMessage("Yes 😀, i am here", event.threadID, (error, info) => {
+      global.GoatBot.onReply.set(info.messageID, {
+        commandName: this.config.name,
+        type: "reply",
+        messageID: info.messageID,
+        author: event.senderID
+      });
+    }, event.messageID);}
     const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(arr)}&senderID=${event.senderID}&font=1`)).data.reply;
     await api.sendMessage(a, event.threadID, (error, info) => {
       global.GoatBot.onReply.set(info.messageID, {
